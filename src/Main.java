@@ -15,34 +15,45 @@ public class Main {
         bootcamp.getConteudos().add(mentoria);
 
         Dev devGuilherme = new Dev("Guilherme");
-        devGuilherme.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos " + devGuilherme.getNome() + ": " + devGuilherme.getConteudosInscritos());
-        devGuilherme.progredir();
-        System.out.println("XP do Dev " + devGuilherme.getNome() + ": " + devGuilherme.calcularXp());
-        System.out.println("Conteúdos Inscritos " + devGuilherme.getNome() + ": " + devGuilherme.getConteudosInscritos());
-        devGuilherme.progredir();
-        System.out.println("XP do Dev " + devGuilherme.getNome() + ": " + devGuilherme.calcularXp());
-        System.out.println("Conteúdos Inscritos " + devGuilherme.getNome() + ": " + devGuilherme.getConteudosInscritos());
-        devGuilherme.progredir();
-        System.out.println("XP do Dev " + devGuilherme.getNome() + ": " + devGuilherme.calcularXp());
-        System.out.println("Conteúdos Inscritos " + devGuilherme.getNome() + ": " + devGuilherme.getConteudosInscritos());
+        inscreverBootcamp(bootcamp, devGuilherme);
+        progredir(devGuilherme);
+        progredir(devGuilherme);
+        progredir(devGuilherme);
+        exibeConteudosInscritos(devGuilherme);
 
         System.out.println("-------------------------");
 
         Dev devMaria = new Dev("Maria");
-        devMaria.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos " + devMaria.getNome() + ": " + devMaria.getConteudosInscritos());
-        devMaria.progredir();
-        System.out.println("XP do Dev " + devMaria.getNome() + ": " + devMaria.calcularXp());
-        System.out.println("Conteúdos Inscritos " + devMaria.getNome() + ": " + devMaria.getConteudosInscritos());
-        devMaria.progredir();
-        System.out.println("XP do Dev " + devMaria.getNome() + ": " + devMaria.calcularXp());
-        System.out.println("Conteúdos Inscritos " + devMaria.getNome() + ": " + devMaria.getConteudosInscritos());
+        inscreverBootcamp(bootcamp, devMaria);
+        progredir(devMaria);
+        progredir(devMaria);
+        exibeConteudosInscritos(devMaria);
 
+        System.out.println("-------------------------");
 
+        exibeConteudosConcluidos(devGuilherme);
+        exibeConteudosConcluidos(devMaria);
+    }
 
-        System.out.println("Conteúdos Concluídos: " + devGuilherme.getConteudosConcluidos());
-        System.out.println("Conteúdos Concluídos: " + devMaria.getConteudosConcluidos());
+    private static void inscreverBootcamp(Bootcamp bootcamp, Dev dev) {
+        dev.inscreverBootcamp(bootcamp);
+    }
 
+    private static void exibeConteudosInscritos(Dev dev){
+        System.out.println("Conteúdos Inscritos " + dev.getNome() + ": " + dev.getConteudosInscritos());
+    }
+
+    private static void exibeConteudosConcluidos(Dev dev){
+        System.out.println("Conteúdos Concluídos: " + dev.getConteudosConcluidos());
+    }
+
+    private static void exibeXp(Dev dev){
+        System.out.println("XP do Dev " + dev.getNome() + ": " + dev.calcularXp());
+    }
+
+    private static void progredir(Dev dev){
+        exibeConteudosInscritos(dev);
+        dev.progredir();
+        exibeXp(dev);
     }
 }
